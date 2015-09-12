@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :relations
-       resources :users do
+      resources :relations do
+        post 'search', on: :collection
+        post 'sends', on: :collection
+      end
+      resources :users do
         post 'search', on: :collection
       end
     end
